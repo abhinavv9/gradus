@@ -2,118 +2,118 @@
   <!-- Header -->
   <CoreHeader />
   <!-- Header -->
+  <ClientOnly>
+    <v-main>
+      <CoreAppBanner v-if="config.config.banner.status" />
+      <CoreHeroCard />
 
-  <v-main>
-    <CoreAppBanner v-if="config.config.banner.status" />
-    <CoreHeroCard />
-
-    <v-container
-      fluid
-      style="
-        border-bottom: 1px solid #dee5f1 !important;
-        border-top: 1px solid #dee5f1 !important;
-      "
-    >
-      <v-row justify="center" align="center">
-        <v-col md="11">
-          <v-container fluid class="pa-0">
-            <v-row justify="space-between">
-              <v-col md="3" lg="3">
-                <v-text-field
-                  :prepend-icon="prependIconSearch"
-                  v-model="search"
-                  hide-details="auto"
-                  rounded
-                  variant="outlined"
-                  clearable
-                  bg-color="#E8F0FE"
-                  base-color="#DEE5F1"
-                  append-inner-icon="mdi-magnify"
-                  density="compact"
-                  @click:clear="resetData()"
-                  @input="searchData($event)"
-                  label="Search for any topic"
-                ></v-text-field>
-              </v-col>
-              <v-col md="3" lg="3">
-                <v-select
-                  v-model="filter"
-                  :prepend-icon="prependIconFilter"
-                  closable-chips
-                  label="Choose Topic"
-                  density="compact"
-                  variant="outlined"
-                  clearable
-                  rounded
-                  multiple
-                  bg-color="#E8F0FE"
-                  base-color="#DEE5F1"
-                  dense
-                  :items="topics"
-                  @click:clear="resetData()"
-                  @update:modelValue="filterData($event)"
-                  @input="filterData($event)"
-                  hide-details
-                >
-                  <template v-slot:selection="{ item, index }">
-                    <v-chip size="small" v-if="index < 1">
-                      <span>{{ item.title }}</span>
-                    </v-chip>
-                    <span
-                      v-if="index === 1"
-                      class="text-grey text-caption align-self-center"
-                    >
-                      (+{{ filter.length - 1 }} others)
-                    </span>
-                  </template>
-                </v-select>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <v-container fluid class="my-0 py-0">
-      <!-- Cards -->
-      <v-row
-        justify="center"
-        align="center"
-        class="px-0 mx-0 mt-5"
-        v-if="res != null && Object.keys(res).length"
+      <v-container
+        fluid
+        style="
+          border-bottom: 1px solid #dee5f1 !important;
+          border-top: 1px solid #dee5f1 !important;
+        "
       >
-        <v-col md="11" class="px-0">
-          <v-container fluid class="px-0">
-            <v-row>
-              <v-col
-                md="3"
-                lg="3"
-                sm="4"
-                cols="12"
-                v-for="(article, index) in res"
-                :key="index"
-              >
-                <CoreLabCard :item="article" />
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-col>
-      </v-row>
-      <!-- Cards -->
+        <v-row justify="center" align="center">
+          <v-col md="11">
+            <v-container fluid class="pa-0">
+              <v-row justify="space-between">
+                <v-col md="3" lg="3">
+                  <v-text-field
+                    :prepend-icon="prependIconSearch"
+                    v-model="search"
+                    hide-details="auto"
+                    rounded
+                    variant="outlined"
+                    clearable
+                    bg-color="#E8F0FE"
+                    base-color="#DEE5F1"
+                    append-inner-icon="mdi-magnify"
+                    density="compact"
+                    @click:clear="resetData()"
+                    @input="searchData($event)"
+                    label="Search for any topic"
+                  ></v-text-field>
+                </v-col>
+                <v-col md="3" lg="3">
+                  <v-select
+                    v-model="filter"
+                    :prepend-icon="prependIconFilter"
+                    closable-chips
+                    label="Choose Topic"
+                    density="compact"
+                    variant="outlined"
+                    clearable
+                    rounded
+                    multiple
+                    bg-color="#E8F0FE"
+                    base-color="#DEE5F1"
+                    dense
+                    :items="topics"
+                    @click:clear="resetData()"
+                    @update:modelValue="filterData($event)"
+                    @input="filterData($event)"
+                    hide-details
+                  >
+                    <template v-slot:selection="{ item, index }">
+                      <v-chip size="small" v-if="index < 1">
+                        <span>{{ item.title }}</span>
+                      </v-chip>
+                      <span
+                        v-if="index === 1"
+                        class="text-grey text-caption align-self-center"
+                      >
+                        (+{{ filter.length - 1 }} others)
+                      </span>
+                    </template>
+                  </v-select>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-col>
+        </v-row>
+      </v-container>
 
-      <!-- No Data -->
-      <v-row justify="center" align="center" class="mx-0 mt-3" v-else>
-        <v-col md="11" class="px-0">
-          <p>
-            <v-icon class="mt-n1 mr-2">mdi-alert-octagram-outline</v-icon>No
-            Data Found!
-          </p>
-        </v-col>
-      </v-row>
-      <!-- No Data -->
-    </v-container>
-  </v-main>
+      <v-container fluid class="my-0 py-0">
+        <!-- Cards -->
+        <v-row
+          justify="center"
+          align="center"
+          class="px-0 mx-0 mt-5"
+          v-if="res != null && Object.keys(res).length"
+        >
+          <v-col md="11" class="px-0">
+            <v-container fluid class="px-0">
+              <v-row>
+                <v-col
+                  md="3"
+                  lg="3"
+                  sm="4"
+                  cols="12"
+                  v-for="(article, index) in res"
+                  :key="index"
+                >
+                  <CoreLabCard :item="article" />
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-col>
+        </v-row>
+        <!-- Cards -->
 
+        <!-- No Data -->
+        <v-row justify="center" align="center" class="mx-0 mt-3" v-else>
+          <v-col md="11" class="px-0">
+            <p>
+              <v-icon class="mt-n1 mr-2">mdi-alert-octagram-outline</v-icon>No
+              Data Found!
+            </p>
+          </v-col>
+        </v-row>
+        <!-- No Data -->
+      </v-container>
+    </v-main>
+  </ClientOnly>
   <!-- Footer -->
   <CoreAppFooter />
   <!-- Footer -->

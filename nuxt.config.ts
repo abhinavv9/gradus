@@ -15,7 +15,6 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
-    "nuxt-gtag",
     "@nuxt/image",
     //...
   ],
@@ -36,6 +35,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: "light-plus",
+      preload: ['lua', 'typescript', 'javascript']
     },
     markdown: {
       anchorLinks: {
@@ -55,8 +55,5 @@ export default defineNuxtConfig({
     // firebase: {
     //   gen: 2
     // }
-  },
-  gtag: {
-    id: "G-JC8BJZ2R1G",
   },
 });
