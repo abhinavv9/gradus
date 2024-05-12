@@ -49,7 +49,7 @@ useSeoMeta({
     "Gradus is an open-source tool that enables you to create codelabs using both markdown and rich markdown components.",
   ogImage: "/donotremove/gradus-social.png",
   ogImageUrl: "/donotremove/gradus-social.png",
-  ogUrl: "https://trygradus.web.app/",
+  ogUrl: "https://gradus.sudoboink.me/",
   ogType: "website",
   twitterTitle: "About Gradus",
   twitterDescription:

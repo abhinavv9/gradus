@@ -313,12 +313,12 @@ useSeoMeta({
   ogTitle: `${metadata.value.title} - Gradus`,
   ogDescription: metadata.value.description,
   ogImage: metadata.value.image,
-  ogImageUrl: metadata.value.image,
+  ogImageUrl: `${config.hostUrl}${metadata.value.image}`,
   ogUrl: `${config.hostUrl}${metadata.value._path}`,
   ogType: "website",
   twitterTitle: `${metadata.value.title} - Gradus`,
   twitterDescription: metadata.value.description,
-  twitterImage: metadata.value.image,
+  twitterImage:`${config.hostUrl}${metadata.value.image}`,
   twitterCard: "summary_large_image",
 });
 
