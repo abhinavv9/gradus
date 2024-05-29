@@ -10,11 +10,6 @@ export default defineNuxtConfig({
   site: {
     url: config.hostUrl,
   },
-  robots: {
-    UserAgent: '*',
-    Disallow: '',
-    Sitemap: `https://gradus.sudoboink.me/sitemap.xml`
-  },
   modules: [
     "@nuxt/content",
     (_options, nuxt) => {
@@ -25,7 +20,9 @@ export default defineNuxtConfig({
     },
     "@nuxt/image",
     "@nuxtjs/sitemap",
-    '@nuxtjs/robots',
+
+    "@nuxtjs/robots",
+
     //...
   ],
   vite: {
@@ -34,6 +31,11 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+  },
+  robots: {
+    UserAgent: "*",
+    Disallow: "/admin",
+    Sitemap: `${config.hostUrl}/sitemap.xml`,
   },
   content: {
     documentDriven: true,
