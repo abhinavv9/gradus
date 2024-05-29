@@ -1,12 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import { config } from "./assets/config";
 export default defineNuxtConfig({
   ssr: true,
   build: {
     transpile: ["vuetify"],
   },
   devtools: { enabled: false },
-
+  site: {
+    url: config.hostUrl,
+  },
   modules: [
     "@nuxt/content",
     (_options, nuxt) => {
@@ -16,6 +19,7 @@ export default defineNuxtConfig({
       });
     },
     "@nuxt/image",
+    "@nuxtjs/sitemap",
     //...
   ],
   vite: {
@@ -35,7 +39,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: "light-plus",
-      preload: ['lua', 'typescript', 'javascript']
+      preload: ["lua", "typescript", "javascript"],
     },
     markdown: {
       anchorLinks: {
