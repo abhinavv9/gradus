@@ -21,21 +21,26 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/sitemap",
 
-    "@nuxtjs/robots",
-
-    //...
+    [
+      "@nuxtjs/robots",
+      {
+        rules: [
+          { UserAgent: "*" },
+          { Disallow: "" },
+          { BlankLine: true },
+          { Sitemap: `${config.hostUrl}sitemap.xml` },
+        ],
+      },
+    ],
   ],
+
+  //...
   vite: {
     vue: {
       template: {
         transformAssetUrls,
       },
     },
-  },
-  robots: {
-    UserAgent: "*",
-    Disallow: "/admin",
-    Sitemap: `${config.hostUrl}/sitemap.xml`,
   },
   content: {
     documentDriven: true,
